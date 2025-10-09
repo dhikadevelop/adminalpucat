@@ -103,7 +103,7 @@ export default function DashboardPage() {
                 className="h-14 w-14 rounded-full object-cover"
               />
               <div>
-                <p className="text-sm text-muted-foreground">Sedang aktif</p>
+                <p className="text-sm text-muted-foreground"></p>
                 <h2 className="text-lg font-semibold">{advocate.name}</h2>
                 <p className="text-sm text-muted-foreground">Terlihat terakhir: {lastSeen}</p>
               </div>
@@ -112,7 +112,7 @@ export default function DashboardPage() {
                   onClick={() => setIsActive(false)}
                   className="rounded-lg border px-3 py-1 text-sm"
                 >
-                  Set tidak aktif
+                  Advokat tidak aktif
                 </button>
               </div>
             </div>
