@@ -87,6 +87,11 @@ export default function ArtikelPage() {
   return (
     <main className="min-h-svh bg-background">
       <section className="container mx-auto max-w-5xl px-4 py-8 fade-in">
+        {/* Header Section */}
+        <div className="mb-8">
+          <h1 className="text-3xl md:text-4xl font-bold text-blue-800 mb-2">Manajemen Artikel</h1>
+          <p className="text-gray-600">Buat dan kelola artikel hukum untuk publik</p>
+        </div>
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
           <aside className="col-span-1">
             <div className="bg-card rounded-xl p-6 shadow-md">

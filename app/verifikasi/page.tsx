@@ -70,8 +70,8 @@ export default function VerifikasiPage() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-primary mb-2">Verifikasi Pendaftaran</h1>
-          <p className="text-foreground">Kelola dan verifikasi pendaftaran</p>
+          <h1 className="text-3xl md:text-4xl font-bold text-blue-800 mb-2">Verifikasi Pendaftaran</h1>
+          <p className="text-gray-600">Kelola dan verifikasi pendaftaran advokat baru</p>
         </div>
 
         {/* Table Card */}

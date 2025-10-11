@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Image from "next/image"
 
 type Advocate = {
   id: string
@@ -91,19 +92,24 @@ export default function DashboardPage() {
   return (
     <div className="min-h-screen bg-dashboard-bg py-8">
       <main className="container mx-auto max-w-5xl px-4">
-        <h1 className="text-2xl md:text-3xl font-semibold text-primary mb-6 text-center">Dashboard Admin</h1>
+        {/* Header Section */}
+        <div className="mb-8">
+          <h1 className="text-3xl md:text-4xl font-bold text-blue-800 mb-2">Dashboard Admin</h1>
+          <p className="text-gray-600">Kelola dan pantau aktivitas sistem Peradi</p>
+        </div>
 
         <div className="space-y-4">
           {/* Top profile banner - only visible when advocate is active */}
           {isActive && advocate ? (
             <div className="bg-card rounded-xl p-4 shadow flex items-center gap-4">
-              <img
+              <Image
                 src={advocate.avatar || "/avatar-placeholder.png"}
                 alt="avatar"
+                width={56}
+                height={56}
                 className="h-14 w-14 rounded-full object-cover"
               />
               <div>
-                <p className="text-sm text-muted-foreground"></p>
                 <h2 className="text-lg font-semibold">{advocate.name}</h2>
                 <p className="text-sm text-muted-foreground">Terlihat terakhir: {lastSeen}</p>
               </div>
