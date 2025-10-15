@@ -21,7 +21,7 @@ const NAV = [
   },
   {
     href: "/verifikasi",
-    label: "Verifikasi",
+    label: "Validasi Data",
     icon: (p: string) => (
       <svg className={p} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
         <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -136,7 +136,7 @@ export default function SidebarLayout({ children }: Props) {
     <div className="min-h-screen flex bg-background">
       {!hideSidebar && (
         <aside
-          className={`flex flex-col transition-all duration-200 shadow-lg bg-gradient-to-b from-blue-50 to-white border-r border-blue-100 ${collapsed ? "w-20" : "w-64"}`}
+          className={`h-screen flex flex-col transition-all duration-200 shadow-lg bg-gradient-to-b from-blue-50 to-white border-r border-blue-100 ${collapsed ? "w-20" : "w-64"}`}
           aria-label="Sidebar utama"
         >
           <div className="flex flex-col items-center gap-3 px-4 py-6 border-b">
@@ -150,12 +150,6 @@ export default function SidebarLayout({ children }: Props) {
                   className="rounded-full object-cover"
                 />
               </div>
-              {!collapsed && (
-                <div className="text-center">
-                  <div className="text-xl font-bold text-blue-800 select-none">Peradi</div>
-                  <div className="text-xs text-blue-600 select-none">Advokat Indonesia</div>
-                </div>
-              )}
             </div>
           </div>
 
@@ -166,11 +160,11 @@ export default function SidebarLayout({ children }: Props) {
                 <Link
                   key={n.href}
                   href={n.href}
-                  className={`flex items-center gap-3 rounded-lg px-3 py-2 text-sm hover:bg-blue-100 transition-colors ${collapsed ? "justify-center" : ""} ${active ? "bg-blue-200 text-blue-800 font-semibold" : "text-gray-700"}`}
+                  className={`flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors ${collapsed ? "justify-center" : ""} ${active ? "bg-blue-100 text-blue-800" : "text-gray-700 hover:bg-blue-50"}`}
                   title={collapsed ? n.label : undefined}
                   aria-current={active ? "page" : undefined}
                 >
-                  <span className={`${collapsed ? "h-6 w-6" : "h-5 w-5"} ${active ? "text-blue-600" : "text-gray-500"}`}>
+                  <span className={`${collapsed ? "h-6 w-6" : "h-5 w-5"} ${active ? "text-blue-700" : "text-gray-500"}`}>
                     {n.icon(collapsed ? "h-6 w-6" : "h-5 w-5")}
                   </span>
                   {!collapsed && <span className="truncate">{n.label}</span>}
@@ -179,41 +173,46 @@ export default function SidebarLayout({ children }: Props) {
             })}
           </nav>
 
-          <div className="px-3 py-4 space-y-2 border-t border-blue-100">
+          <div className="mt-auto px-3 py-4 space-y-2 border-t border-blue-100">
             <button
               onClick={handleLogout}
-              className="w-full rounded-lg bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 px-3 py-2 text-sm text-white transition-all shadow-sm"
+              title={collapsed ? "Logout" : undefined}
+              className={`w-full inline-flex items-center ${collapsed ? "justify-center" : "justify-start"} gap-2 rounded-lg bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 px-3 py-2 text-sm text-white transition-all shadow-sm`}
             >
-              Logout
+              {/* Logout icon */}
+              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                <path d="M16 17l5-5-5-5" />
+                <path d="M21 12H9" />
+              </svg>
+              {!collapsed && <span>Logout</span>}
             </button>
           </div>
         </aside>
       )}
 
       <div className={`flex-1 p-4 ${hideSidebar ? "max-w-3xl mx-auto" : ""}`}>
-        {/* Toggle Button - only show when sidebar is visible */}
+        {/* Header bar with only toggle button (title removed for cleaner look) */}
         {!hideSidebar && (
-          <div className="mb-4">
+          <div className="mb-3 flex items-center">
             <button
               onClick={() => setCollapsed(v => !v)}
               aria-label={collapsed ? "Buka sidebar" : "Tutup sidebar"}
-              className="inline-flex items-center gap-2 rounded-lg border border-blue-200 bg-white hover:bg-blue-50 px-4 py-2 text-sm text-blue-700 transition-colors shadow-sm"
+              className="inline-flex items-center justify-center rounded-lg border border-blue-200 bg-white hover:bg-blue-50 h-10 w-10 text-blue-700 transition-colors shadow-sm"
             >
               <svg 
-                className="h-4 w-4" 
+                className="h-5 w-5" 
                 fill="none" 
                 stroke="currentColor" 
                 viewBox="0 0 24 24"
               >
                 {collapsed ? (
-                  // Hamburger menu icon (3 lines)
                   <>
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 12h16" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 18h16" />
                   </>
                 ) : (
-                  // X/Close icon
                   <>
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   </>

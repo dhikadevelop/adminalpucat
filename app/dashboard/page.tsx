@@ -29,7 +29,7 @@ function sampleAdvocate(): { advocate: Advocate; activities: Activity[] } {
     location: "Jakarta",
     email: "andi.prasetyo@example.com",
     phone: "0812-3456-7890",
-    avatar: "/avatar-placeholder.png",
+    avatar: "/cukurukuk.jpg",
   }
 
   const activities: Activity[] = [

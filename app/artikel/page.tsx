@@ -99,7 +99,7 @@ export default function ArtikelPage() {
               <form onSubmit={addArticle} className="mt-4 flex flex-col gap-3">
                 <label className="text-sm">Judul</label>
                 <input
-                  className="rounded-md border bg-input px-3 py-2 text-sm"
+                  className="rounded-md border border-blue-200 bg-white placeholder:text-gray-400 px-3 py-2 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   placeholder="Masukkan judul artikel"
@@ -107,14 +107,14 @@ export default function ArtikelPage() {
 
                 <label className="text-sm">Penulis</label>
                 <input
-                  className="rounded-md border bg-input px-3 py-2 text-sm"
+                  className="rounded-md border border-blue-200 bg-white placeholder:text-gray-400 px-3 py-2 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300"
                   value={author}
                   onChange={(e) => setAuthor(e.target.value)}
                 />
 
                 <label className="text-sm">Ringkasan</label>
                 <textarea
-                  className="rounded-md border bg-input px-3 py-2 text-sm resize-y"
+                  className="rounded-md border border-blue-200 bg-white placeholder:text-gray-400 px-3 py-2 text-sm text-gray-800 resize-y focus:outline-none focus:ring-2 focus:ring-blue-300"
                   rows={4}
                   value={excerpt}
                   onChange={(e) => setExcerpt(e.target.value)}
